@@ -97,6 +97,7 @@ template<class T>
 
 
         }
+        friend T Reverse2(const Clink<T>& link);
     private:
         Node<T>* head;//创建头节点
         
@@ -112,8 +113,9 @@ template<class T>
         link.InsertFirst(220);
         link.InsertFirst(230);
         link.Show();
-        link.Remove(120);
+        //link.Remove(120);//移除120
         link.Show();
+
 
     }
     void test02()
@@ -128,12 +130,46 @@ template<class T>
         link2.Show();
 
     }
+    //链表逆序
+template<class T>
+T Reverse2(const Clink<T> &link)//引用方式传入一个链表
+{
+    Node<T>* p = link<T>.head->next;
+    Node<T>* q = nullptr;
+    link<T>.head->next= nullptr;//转换后的首节点变成尾节点，所以其地址域要设为空
 
+    while (p!=nullptr)
+    {
+        q = p->next;//保存下一个节点
+        p->next = link<T>.head->next;
+        link<T>.head->next = p;
+        p = q;
+        q = nullptr;
+    }
+    
+
+
+}
+
+void test03()
+{
+    Clink<int> link;
+    link.InsertFirst(10);
+    link.InsertFirst(520);
+    link.InsertFirst(120);
+    link.InsertFirst(220);
+    link.InsertFirst(230);
+    link.Show();
+    Reverse2<int>(link);
+    link.Show();
+
+}
 
 int main()
 {
-    test01();
-    test02();
+    //test01();
+    //test02();
+    test03();
 
     system("pause");
     return 0;
