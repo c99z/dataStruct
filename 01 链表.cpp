@@ -1,109 +1,7 @@
 #include <iostream>
 using namespace std;
-
-//节点代码
-template<class T>
-class Node
-{
-public:
-    T data;
-    Node<T>* next;//指向下一个节点类型的指针域，这行代码意思就是创建一个Node类型的指针。
-public:
-    Node<T>() //默认构造函数，创建的新节点指针域指向空
-    {
-        this->next = nullptr;
-
-    };
-    Node<T>(T data)
-    {
-        this->data = data;
-        this->next = nullptr;
-    }
-    Node<T>(const T& data, Node<T> *next)
-    {
-        this->data = data;
-        this->next = next;
-    };
-};
-
-
-//单链实现代码
-template<class T>
-    class Clink
-    {
-    public:
-        Clink() 
-        {
-           
-            head = new Node<T>();//初始化头节点,并调用默认构造函数
-            
-        }
-        ~Clink()//析构得遍历每一个节点
-        {
-            Node<T>* q = head;
-            Node<T>* p = head->next;//麻烦了，head用不着了，可以直接用head操作
-            while (p!=nullptr)
-            {
-                delete q;
-                q = p;
-                p = p->next;
-                
-            }
-            //节点的释放
-        };
-    public:
-        
-        //接口
-        //尾插法
-        // 
-        //头插法
-        void InsertFirst(T val)
-        {
-            Node<T>* node1 = new Node<T>(val);//创建一个新节点并初始化
-            //先找到头节点指向的下一个节点，链接一下
-            node1->next = head->next;//不需要判断是否为空
-            head->next = node1;
-        }
-        //链表打印
-        void Show()
-        {
-            Node<T> *p = head->next;
-            while (p!=nullptr)
-            {
-                cout<< p->data << " ";
-                p = p->next;
-            }
-            cout << endl;
-        }
-
-        //删除值为val的节点
-        void Remove(T val)
-        {
-            Node<T>* q = head;
-            Node<T>* p = head->next;
-            while (p->next!=nullptr)
-            {
-                if (p->data == val)
-                {
-                    q->next = p->next;
-                    delete p;
-                    return;//void型返回值
-                }
-                else
-                {
-                    q = p;
-                    p = p->next;
-                }
-            }
-
-
-        }
-        friend void Reverse2(const Clink<T>& link);
-        //frined void ReverseLink(const Node<T>& head;
-    public:
-        Node<T>* head;//创建头节点
-        
-    };
+#include "Node.h"
+#include "Clink.h"
 
 //测试
     void test01()
@@ -192,6 +90,68 @@ void ReverseCount(Node<T>& head)
     cout << p->data << endl;
 }
 
+//合并两个有序的单链表
+void MergeClink(Clink<int>& l1, Clink<int>& l2 )//按引用传递，修改形参就把实参改了
+{
+    Node<int>* p = l1.head->next;
+    Node<int>* h = l1.head;
+    Node<int>* q = l2.head->next;
+    while (p!=nullptr&&q!=nullptr)
+    {
+        if (p->data > q->data)//p大于q，把q插进l1
+        {
+            l2.head->next = q->next;
+            q->next = p;
+            h->next = q;
+            q = l2.head->next;
+            h = h->next;
+        }
+        else
+        {
+            p = p->next;
+            h = h->next;
+            //l1.head->next = h;
+        }
+    }
+    if (p==nullptr)
+    {
+        h->next = q;
+    }
+    
+}/*这个代码更好理解*/
+
+void MergeClink2(Clink<int>& l1, Clink<int>& l2)
+{
+    Node<int>* p = l1.head->next;
+    Node<int>* q = l2.head->next;
+    Node<int>* last = l1.head;//last为最终结果的末尾节点
+    while (p != nullptr && q != nullptr)
+    {
+        if (p->data>q->data)//q小于p，把q插到末尾去
+        {
+            last->next = q;
+            q = q->next;
+            last = last->next;//始终指向末尾节点
+        }
+        else//否则把p插进去
+        {
+            last->next = p;
+            p = p->next;
+            last = last->next;
+        }
+
+    }
+    if (q == nullptr)
+    {
+        last->next = p;
+    }
+    if (p==nullptr)
+    {
+        last->next = q;
+    }
+    l2.head->next = nullptr;//2置为空
+}
+
 void test03()
 {   
 
@@ -234,14 +194,37 @@ void test05()
 
 
 }
+void test06()
+{
+    int arr[] = {10, 15, 23, 35, 46, 77, 89, 90,91,92,93,94,95,96,97};
+    int brr[] = {8,9,14,22,48,56,100,152,153,156,200};
+    Clink<int> l1;
+    Clink<int> l2;
+    for (int v : arr)
+    {
+        l1.InsertTail(v);//尾插法插进去
+    }
+    for (int v:brr)
+    {
+        l2.InsertTail(v);
+    }
+    l1.Show();
+    l2.Show();
+    MergeClink2(l1, l2);
+    l1.Show();
+    //l2.Show();
+    //cout << l1.head->next->data << endl;
+
+}
 int main()
 {
     
     //test01();
     //test02();
-    test03();
+    //test03();
     //test04();
     //test05();
+    test06();
     system("pause");
     return 0;
 }
