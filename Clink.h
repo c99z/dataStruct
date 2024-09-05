@@ -28,7 +28,7 @@ public:
     //尾插法
      void InsertTail(T val)
     {
-        Node<T>* node1 = new Node<T>(val);
+        Node<T>* node1 = new Node<T>(val); //new的返回值用一个指针接收
         Node<T>* p = head;
         while (p->next!=nullptr)
         {
@@ -40,7 +40,7 @@ public:
     //头插法
     void InsertFirst(T val)
     {
-        Node<T>* node1 = new Node<T>(val);//创建一个新节点并初始化
+        Node<T>* node1 = new Node<T>(val);//创建一个新节点并初始化，new的返回值用一个指针接收
         //先找到头节点指向的下一个节点，链接一下
         node1->next = head->next;//不需要判断是否为空
         head->next = node1;
@@ -82,6 +82,6 @@ public:
     friend void Reverse2(const Clink<T>& link);
     //frined void ReverseLink(const Node<T>& head;
 public:
-    Node<T>* head;//创建头节点
+    Node<T>* head;//创建头节点指针
 
 };

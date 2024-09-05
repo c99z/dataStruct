@@ -18,6 +18,9 @@
     <ClCompile Include="01 链表.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="02 循环单链表.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -26,5 +29,14 @@
     <ClInclude Include="Clink.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CircleLink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
