@@ -24,6 +24,9 @@
     <ClCompile Include="..\队列\queue.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="queue2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
