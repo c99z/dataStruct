@@ -15,9 +15,9 @@ public:
 	}
 	void push(int val)
 	{
-		if (empty())
+		if (full())//如果满了就扩容
 		{
-			throw"";
+			expand();
 		}
 		else
 		{
@@ -67,9 +67,33 @@ public:
 			return false;
 		}
 	}
+	//判满
+	bool full()
+	{
+		if (first==(rear+1)%msize)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 	int size()
 	{
 		return size_;
+	}
+	//扩容
+	void expand()
+	{
+		int Newmsize = 2 * msize;
+		int* newArr = new int[Newmsize];
+		for (int i = 0; i < msize; i++)
+		{
+			newArr[i] = mq[i];
+		}
+		mq = newArr;
+		msize = Newmsize;
 	}
 	//析构
 	~queue()
@@ -92,6 +116,17 @@ void test01()
 	q1.push(20);
 	q1.push(30);
 	q1.push(40);
+	q1.push(50);
+	q1.push(50);
+	q1.push(50);
+	q1.push(50);
+	q1.push(50);
+	q1.push(50);
+	q1.push(50);
+	q1.push(50);
+	q1.push(50);
+	q1.push(50);
+	q1.push(50);
 	q1.push(50);
 	q1.Show();
 	cout << "size:" << q1.size() << endl;//
