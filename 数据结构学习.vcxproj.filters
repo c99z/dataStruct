@@ -21,6 +21,9 @@
     <ClCompile Include="02 循环单链表.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\队列\queue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -35,8 +38,5 @@
     <ClInclude Include="CircleNode.h">
       <Filter>头文件</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

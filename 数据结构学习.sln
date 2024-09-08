@@ -5,8 +5,6 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "数据结构学习", "数据结构学习.vcxproj", "{DEBF83E9-EDE4-484A-B58B-38035906B626}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "队列", "..\队列\队列.vcxproj", "{4877FBE1-2B19-454D-A9E0-8E65C087B354}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,14 +21,6 @@ Global
 		{DEBF83E9-EDE4-484A-B58B-38035906B626}.Release|x64.Build.0 = Release|x64
 		{DEBF83E9-EDE4-484A-B58B-38035906B626}.Release|x86.ActiveCfg = Release|Win32
 		{DEBF83E9-EDE4-484A-B58B-38035906B626}.Release|x86.Build.0 = Release|Win32
-		{4877FBE1-2B19-454D-A9E0-8E65C087B354}.Debug|x64.ActiveCfg = Debug|x64
-		{4877FBE1-2B19-454D-A9E0-8E65C087B354}.Debug|x64.Build.0 = Debug|x64
-		{4877FBE1-2B19-454D-A9E0-8E65C087B354}.Debug|x86.ActiveCfg = Debug|Win32
-		{4877FBE1-2B19-454D-A9E0-8E65C087B354}.Debug|x86.Build.0 = Debug|Win32
-		{4877FBE1-2B19-454D-A9E0-8E65C087B354}.Release|x64.ActiveCfg = Release|x64
-		{4877FBE1-2B19-454D-A9E0-8E65C087B354}.Release|x64.Build.0 = Release|x64
-		{4877FBE1-2B19-454D-A9E0-8E65C087B354}.Release|x86.ActiveCfg = Release|Win32
-		{4877FBE1-2B19-454D-A9E0-8E65C087B354}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
