@@ -30,7 +30,7 @@ public:
     {
         Node<T>* node1 = new Node<T>(val); //new的返回值用一个指针接收
         Node<T>* p = head;
-        while (p->next!=nullptr)
+        while (p->next!=nullptr)//先找到尾节点
         {
             p = p->next;
         }
@@ -67,7 +67,7 @@ public:
             if (p->data == val)
             {
                 q->next = p->next;
-                delete p;
+                delete p;//删除不仅要取消链接，还要delete
                 return;//void型返回值
             }
             else
@@ -83,5 +83,5 @@ public:
     //frined void ReverseLink(const Node<T>& head;
 public:
     Node<T>* head;//创建头节点指针
-
+    
 };
