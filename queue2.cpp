@@ -6,12 +6,21 @@ class queue
 {
 public:
 	queue()
+		:msize(10)
+		,size_(0)
+		,first(0)
+		,rear(0)
 	{
-		int* mq = new int[10];
+		mq = new int[msize];
 	}//默认构造
-	queue(int size)
+	queue(int num)
+		:msize(num)
+		, size_(0)
+		, first(0)
+		, rear(0)
 	{
-		this->msize = size;
+		mq = new int[msize];
+
 	}
 	void push(int val)
 	{
@@ -19,12 +28,11 @@ public:
 		{
 			expand();
 		}
-		else
-		{
+		/*这里不要else,扩容之后还是要插入*/
 			mq[rear] = val;
 			rear = (rear + 1) % msize;
 			size_++;
-		}
+	
 
 	}
 	//队头
@@ -110,12 +118,12 @@ public:
 	}
 
 private:
-	/*这里的初始化可以放在构造函数里*/
-	int first = 0;//队头
-	int rear = 0;//队尾
-	int msize = 10;//默认数组大小10
-	int* mq = new int[msize];//数组
-	int size_ = 0;
+	/*这里的初始化可以放在构造函数里,这里不要写*/
+	int first ;//队头
+	int rear ;//队尾
+	int msize ;//默认数组大小10
+	int* mq ;//数组
+	int size_;
 
 	//扩容 要写成私有的，不能给用户调用
 	void expand()
@@ -126,53 +134,37 @@ private:
 		//{
 		//	newArr[i] = mq[i];
 		//}
-		int n = 0;
-		for (int i =first; i != rear; i=(i+1)%msize)
+		int i = 0;
+		int j = first;
+		for (; j != rear;i++, j=(j+1)%msize)
 		{
-			newArr[n] = mq[i];
-			n++;
+			newArr[i] = mq[j];
+			
 		}
 		delete[]mq;//释放原来的内存,要全部释放，而不只是指向数组的指针
-		mq = nullptr;
+		//mq = nullptr;
 		mq = newArr;
 		msize = Newmsize;
 		first = 0;
-		rear = n + 1;
+		rear = i;
 	}
 };
 
 void test01()
 {
-	queue q1;
+	queue q1; 
 	q1.push(10);
+	q1.push(30);
+	q1.push(40);
 	q1.push(20);
+	q1.push(50);
+	q1.push(60);
+	q1.push(40);
+	q1.push(30);
+	q1.push(10);
+	q1.push(30);
 	q1.push(20);
-	q1.push(20);
-	q1.push(20);
-	q1.pop();
-	q1.pop();
-	q1.pop();
-	q1.push(20);
-	q1.push(20);
-	q1.push(20);
-	q1.push(20);
-
-	q1.push(20);
-	q1.pop();
-	q1.pop();
-	q1.pop();
-
-	q1.push(20);
-	q1.push(20);
-	q1.push(20);
-	q1.push(20);
-	q1.push(20);
-	q1.push(20);
-	q1.push(20);
-	q1.push(20);
-	q1.push(20);
-	q1.push(20);
-	q1.push(20);
+	q1.push(40);
 	q1.Show();
 
 	//cout << "size:" << q1.size() << endl;//
