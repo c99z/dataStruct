@@ -40,6 +40,7 @@ public:
 	{
 		return mq[first];
 	}
+
 	//¶ÓÎ²
 	int back()
 	{

@@ -21,10 +21,10 @@
     <ClCompile Include="02 循环单链表.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\队列\queue.cpp">
+    <ClCompile Include="queue2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="queue2.cpp">
+    <ClCompile Include="计算阶乘（递归.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
