@@ -33,6 +33,9 @@
     <ClCompile Include="06 归并排序.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="07 基于堆的优先级序列.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">

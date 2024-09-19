@@ -139,10 +139,13 @@
     <ClCompile Include="05 基础排序.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="06 归并排序.cpp" />
+    <ClCompile Include="06 归并排序.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="04 计算阶乘（递归.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="07 基于堆的优先级序列.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CircleLink.h">
