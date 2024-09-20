@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <functional>
 #include <time.h>
+#include <algorithm>
 using namespace std;
 
 class PriorityQueue
@@ -123,4 +124,5 @@ int main()
 	test01();
 	system("pause");
 	return 0;
+	
 }
