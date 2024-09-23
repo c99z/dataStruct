@@ -145,7 +145,13 @@
     <ClCompile Include="04 计算阶乘（递归.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="07 基于堆的优先级序列.cpp" />
+    <ClCompile Include="07 基于堆的优先级序列.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="08 BST树.cpp" />
+    <ClCompile Include="08.2 int型bst树.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CircleLink.h">
