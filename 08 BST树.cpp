@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
+#include <algorithm>
 
-template <typename T>
+template <typename T,typename Compare=less<T>>
 class BSTree
 {
 public:
@@ -31,10 +32,6 @@ public:
 			if (val >= p->data_)
 			{
 				p = p->right_;
-				if (val < p->left_)
-				{
-
-				}
 			}
 			else
 			{
